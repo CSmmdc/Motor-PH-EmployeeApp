@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bce09fd-1f13-4e1e-896a-c24fa129c077" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AttendanceFileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AttendanceMemoryFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EmployeeFileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EmployeeMemoryFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attendance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AttendanceFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttendanceFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/sydne/Documents/GitHub/Motor-PH-EmployeeApp"
+    "last_opened_file_path": "C:/Users/sydne/Documents/GitHub/Motor-PH-EmployeeApp",
+    "settings.editor.selected.configurable": "preferences.packagesearch.PackageSearchGeneralConfigurable"
   }
 }]]></component>
   <component name="RunManager">

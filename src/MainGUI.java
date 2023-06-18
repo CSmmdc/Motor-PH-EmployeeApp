@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
+
 public class MainGUI extends JPanel {
     private JTextField EnterMonthField;
     private JTextField EnterEMPNUMBField;
@@ -189,9 +190,11 @@ public class MainGUI extends JPanel {
     public void actionPerformed(ActionEvent e) {
         String inputnum = EnterEMPNUMBField.getText();
         String inputmo = EnterMonthField.getText();
-        EmployeeFileReader.EmpFileRead(String inputnum, String inputmo);
+        EmployeeFileReader.EmpFileRead(inputnum, inputmo);
         EmployeeFileReader reader = new EmployeeFileReader();
         reader.EmpFileRead(inputnum, inputmo);
+        AttendanceFileReader reader2 = new AttendanceFileReader();
+        reader.AttenFileRead(inputnum, inputmo);
 
 
     }
