@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
-public class AttendanceFileReader(String inputmo) {
+public class AttendanceFileReader(String inputnum, String inputmo) {
 
     public static void AttenFileRead(){
         ArrayList<Attendance> employeeAttendances = new ArrayList<Attendance>();
