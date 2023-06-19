@@ -194,7 +194,7 @@ public class MainGUI extends JPanel {
         EmployeeFileReader reader = new EmployeeFileReader();
         reader.EmpFileRead(inputnum, inputmo);
         AttendanceFileReader reader2 = new AttendanceFileReader();
-        reader.AttenFileRead(inputnum, inputmo);
+        reader2.AttenFileRead(inputmo);
 
 
     }
