@@ -5,6 +5,9 @@ import javax.swing.event.*;
 
 
 public class MainGUI extends JPanel {
+    private Employee emp;
+
+    // GUI elements below
     private JTextField EnterMonthField;
     private JTextField EnterEMPNUMBField;
     private JLabel EnterMonthDisplay;
@@ -190,11 +193,25 @@ public class MainGUI extends JPanel {
     public void actionPerformed(ActionEvent e) {
         String inputnum = EnterEMPNUMBField.getText();
         String inputmo = EnterMonthField.getText();
-        EmployeeFileReader.EmpFileRead(inputnum, inputmo);
+        Employee emp = EmployeeFileReader.EmpFileRead(inputnum, inputmo);
         EmployeeFileReader reader = new EmployeeFileReader();
         reader.EmpFileRead(inputnum, inputmo);
         AttendanceFileReader reader2 = new AttendanceFileReader();
         reader2.AttenFileRead(inputmo);
+
+        //Enter here text display button for the left side
+        EmpLastNameBox.setText(emp.LastName);
+        EmpFirstNameBox.setText(emp.FirstName);
+        BirthdayBox.setText(emp.Birth);
+        PhoneNumBox.setText(emp.PhoneNum);
+        AddressBox.setText(emp.Address);
+        PositionBox.setText(emp.Position);
+        StatusBox.setText(emp.Status);
+        SupervisorBox.setText(emp.Supervisor);
+        TINBox.setText(emp.TIN);
+        SSSBox.setText(emp.SSS);
+        PhilHealthBox.setText(emp.PhilHealth);
+        PAGIBIGBox.setText(emp.Pagibig);
 
 
     }

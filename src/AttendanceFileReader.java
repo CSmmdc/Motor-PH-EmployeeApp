@@ -8,10 +8,9 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-
 public class AttendanceFileReader(String inputnum, String inputmo) {
 
-    public static void AttenFileRead(){
+    public static void AttenFileRead(String inputmo){
         ArrayList<Attendance> employeeAttendances = new ArrayList<Attendance>();
 
         BufferedReader reader2 = null;

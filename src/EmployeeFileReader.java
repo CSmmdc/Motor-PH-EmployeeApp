@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class EmployeeFileReader {
 
-    public static void EmpFileRead(String inputnum, String inputmo) {
+    public static Employee EmpFileRead(String inputnum, String inputmo) {
         Employee emp = new Employee();
         BufferedReader reader = null;
         try {
@@ -35,33 +35,12 @@ public class EmployeeFileReader {
                     emp.Status = EmpData[10];
                     emp.Position = EmpData[11];
                     emp.Supervisor = EmpData[12];
-                    //                     emp.BasicSalary = Double.parseDouble(EmpData[13]);
+                    emp.setBasicSalary(Double.parseDouble(EmpData[13]));
                     emp.Rice = Float.parseFloat(EmpData[14]);
                     emp.PhoneMoney = Float.parseFloat(EmpData[15]);
                     emp.Clothes = Float.parseFloat(EmpData[16]);
                     emp.MonthlyRate = Float.parseFloat(EmpData[17]);
-//                            emp.HourlyRate = Double.parseDouble(EmpData[18]);
-
-                    /** Used setter to set the hour rate of the employee from the CSV */
-                    //emp.setHourlyRate(Double.parseDouble((EmpData[18])));
-                    //emp.setBasicSalary(Double.parseDouble(EmpData[13]));
-
-
-                    //Enter here text display button for the left side
-                    LNBox.setText(emp.LastName);
-                    FNBox.setText(emp.FirstName);
-                    BirthdateBox.setText(emp.Birth);
-                    PNBox.setText(emp.PhoneNum);
-                    AddressBox.setText(emp.Address);
-                    PositionBox.setText(emp.Position);
-                    StatusBox.setText(emp.Status);
-                    SuperBox.setText(emp.Supervisor);
-                    TINBox.setText(emp.TIN);
-                    SSSBox.setText(emp.SSS);
-                    PHHBox.setText(emp.PhilHealth);
-                    PIBox.setText(emp.Pagibig);
-
-
+                    emp.setHourlyRate(Double.parseDouble((EmpData[18])));
 
 
 
@@ -71,5 +50,6 @@ public class EmployeeFileReader {
         } catch (IOException ex2) {
             throw new RuntimeException(ex2);
         }
+        return emp;
     }
 }

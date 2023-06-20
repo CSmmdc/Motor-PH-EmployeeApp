@@ -21,4 +21,12 @@ public class Employee {
     float PhoneMoney;
     float Clothes;
     float MonthlyRate;
+    double HourlyRate;
+
+    public void setHourlyRate(double hourlyRate) {
+        HourlyRate = hourlyRate;
+    }
+    public void setBasicSalary(double salary) {
+        this.BasicSalary = salary;
+    }
 }
