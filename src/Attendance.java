@@ -87,4 +87,4 @@ public class Attendance {
         return (this.TimeOut.getHours() - this.TimeIn.getHours()) - 1;
     }
 }
-}
+

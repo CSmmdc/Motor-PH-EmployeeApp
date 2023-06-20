@@ -41,10 +41,6 @@ public class EmployeeFileReader {
                     emp.Clothes = Float.parseFloat(EmpData[16]);
                     emp.MonthlyRate = Float.parseFloat(EmpData[17]);
                     emp.setHourlyRate(Double.parseDouble((EmpData[18])));
-
-
-
-
                 }
             }
         } catch (IOException ex2) {

@@ -6,7 +6,7 @@ import javax.swing.event.*;
 
 public class MainGUI extends JPanel {
     private Employee emp;
-
+    InputMemory inputMemory = new InputMemory();
     // GUI elements below
     private JTextField EnterMonthField;
     private JTextField EnterEMPNUMBField;
@@ -191,13 +191,16 @@ public class MainGUI extends JPanel {
     }
 
     public void actionPerformed(ActionEvent e) {
+
         String inputnum = EnterEMPNUMBField.getText();
         String inputmo = EnterMonthField.getText();
+        inputMemory.setInputNum(inputnum);
+        inputMemory.setInputMo(inputmo);
         Employee emp = EmployeeFileReader.EmpFileRead(inputnum, inputmo);
         EmployeeFileReader reader = new EmployeeFileReader();
         reader.EmpFileRead(inputnum, inputmo);
         AttendanceFileReader reader2 = new AttendanceFileReader();
-        reader2.AttenFileRead(inputmo);
+        reader2.AttenFileRead(inputmo, inputnum);
 
         //Enter here text display button for the left side
         EmpLastNameBox.setText(emp.LastName);

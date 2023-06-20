@@ -10,8 +10,9 @@ import java.util.ArrayList;
 
 public class AttendanceFileReader(String inputnum, String inputmo) {
 
-    public static void AttenFileRead(String inputmo){
+    public static void AttenFileRead(String inputmo, String inputnum, Employee emp){
         ArrayList<Attendance> employeeAttendances = new ArrayList<Attendance>();
+        ArrayList<Integer> weeklyHoursList = new ArrayList<>();
 
         BufferedReader reader2 = null;
         try {
@@ -86,10 +87,10 @@ public class AttendanceFileReader(String inputnum, String inputmo) {
                 totalHoursWorked += currentEmployeeAttendance.getHoursWorked();
             }
 
-            /**
-             * After getting total hours worked, set the value to Employee object using setter
-             */
-            emp.setHoursWorked(totalHoursWorked);
+                /**
+                 * After getting total hours worked, set the value to Employee object using setter
+                 */
+                emp.setHoursWorked(totalHoursWorked);
 
             /**
              * ===== NOTE =====
@@ -99,7 +100,7 @@ public class AttendanceFileReader(String inputnum, String inputmo) {
              *
              * This assumes your ArrayList is sorted by date. PLEASE MAKE SURE IT IS.
              */
-            ArrayList<Integer> weeklyHoursList = new ArrayList<>();
+
 
             int firstWeekHours = 0;
 
@@ -108,7 +109,7 @@ public class AttendanceFileReader(String inputnum, String inputmo) {
                 /** If you're sure about the objects inside ArrayList, you can chain methods */
                 firstWeekHours += employeeAttendances.get(dayIndex).getHoursWorked();
             }
-            // Assuming each week consists of 6 working days
+
             int workingDaysPerWeek = 7;
             int totalWeeks = (employeeAttendances.size() + workingDaysPerWeek - 1) / workingDaysPerWeek; // Calculate the total number of weeks based on the number of attendance records
 
