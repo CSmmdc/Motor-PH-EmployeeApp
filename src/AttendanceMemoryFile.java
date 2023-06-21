@@ -15,7 +15,7 @@ public class AttendanceMemoryFile {
     }
 
     // Method to access the HoursWorked from Attendance
-    public int getHoursWorked() {
+    public long getHoursWorked() {
         return attendance.getHoursWorked();
     }
 

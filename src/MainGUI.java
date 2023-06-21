@@ -202,7 +202,6 @@ public class MainGUI extends JPanel {
         Attendance attendance = new Attendance();
         AttendanceFileReader reader2 = new AttendanceFileReader();
         reader2.AttenFileRead(inputmo, inputnum, attendance);
-        AttendanceFileReader.AttenFileRead();
 
         //Enter here text display button for the left side
         EmpLastNameBox.setText(emp.LastName);
@@ -217,6 +216,7 @@ public class MainGUI extends JPanel {
         SSSBox.setText(emp.SSS);
         PhilHealthBox.setText(emp.PhilHealth);
         PAGIBIGBox.setText(emp.Pagibig);
+        
 
 
     }
