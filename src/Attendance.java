@@ -79,12 +79,16 @@ public class Attendance {
      * that you can utilize. Refer to line 41 and 49.
      */
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("hh:mm");
-
+    long HoursWorked;
     /**
      * This is how we replace your computation in MyPanel for the
      */
     public int getHoursWorked() {
         return (this.TimeOut.getHours() - this.TimeIn.getHours()) - 1;
+    }
+    public void setHoursWorked(long hoursWorked) {
+        HoursWorked = hoursWorked;
+
     }
 }
 

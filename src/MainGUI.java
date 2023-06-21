@@ -199,8 +199,10 @@ public class MainGUI extends JPanel {
         Employee emp = EmployeeFileReader.EmpFileRead(inputnum, inputmo);
         EmployeeFileReader reader = new EmployeeFileReader();
         reader.EmpFileRead(inputnum, inputmo);
+        Attendance attendance = new Attendance();
         AttendanceFileReader reader2 = new AttendanceFileReader();
-        reader2.AttenFileRead(inputmo, inputnum);
+        reader2.AttenFileRead(inputmo, inputnum, attendance);
+        AttendanceFileReader.AttenFileRead();
 
         //Enter here text display button for the left side
         EmpLastNameBox.setText(emp.LastName);

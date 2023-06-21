@@ -8,7 +8,6 @@ public class Employee {
     String Supervisor;
     String TimeIn;
     String TimeOut;
-
     String PhoneNum;
     String SSS;
     String PhilHealth;
@@ -16,15 +15,22 @@ public class Employee {
     String Pagibig;
     String Status;
 
-    double BasicSalary;
+    private double BasicSalary;
     float Rice;
     float PhoneMoney;
     float Clothes;
     float MonthlyRate;
-    double HourlyRate;
+    private double HourlyRate;
 
-    public void setHourlyRate(double hourlyRate) {
-        HourlyRate = hourlyRate;
+    public double getHourlyRate() {
+        return HourlyRate;
+    }
+
+    public void setHourlyRate(double HourlyRate){
+        this.HourlyRate = HourlyRate;
+    }
+    public double getBasicSalary() {
+        return BasicSalary;
     }
     public void setBasicSalary(double salary) {
         this.BasicSalary = salary;

@@ -7,16 +7,18 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+public class AttendanceFileReader {
 
-public class AttendanceFileReader(String inputnum, String inputmo) {
-
-    public static void AttenFileRead(String inputmo, String inputnum, Employee emp){
+    public void AttenFileRead(String inputmo, String inputnum, Attendance attendance){
         ArrayList<Attendance> employeeAttendances = new ArrayList<Attendance>();
         ArrayList<Integer> weeklyHoursList = new ArrayList<>();
-
+        String fileName = "./Attendance.csv";
         BufferedReader reader2 = null;
         try {
-            reader2 = new BufferedReader(new FileReader("./Attendance.csv"));
+            reader2 = new BufferedReader(new FileReader(fileName));
         } catch (FileNotFoundException ex) {
             throw new RuntimeException(ex);
         }
@@ -90,7 +92,7 @@ public class AttendanceFileReader(String inputnum, String inputmo) {
                 /**
                  * After getting total hours worked, set the value to Employee object using setter
                  */
-                emp.setHoursWorked(totalHoursWorked);
+                attendance.setHoursWorked(totalHoursWorked);
 
             /**
              * ===== NOTE =====
