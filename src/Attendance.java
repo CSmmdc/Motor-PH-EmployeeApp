@@ -69,7 +69,11 @@ public class Attendance {
     }
 
     public long getHoursWorked() {
-        Duration duration = Duration.between(TimeIn, TimeOut);
-        return duration.toHours();
+        if (TimeIn != null && TimeOut != null) {
+            Duration duration = Duration.between(TimeIn, TimeOut);
+            return duration.toHours();
+        } else {
+            return 0; // Or any default value you prefer when the times are not set
+        }
     }
 }

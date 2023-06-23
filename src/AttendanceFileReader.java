@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
@@ -12,8 +13,9 @@ import java.time.temporal.WeekFields;
 import java.time.format.DateTimeParseException;
 
 public class AttendanceFileReader {
-    public static void AttenFileRead(String inputmo, String inputnum, Attendance attendance) {
+    public static WeekMemory AttenFileRead(String inputmo, String inputnum, Attendance attendance) {
         ArrayList<Attendance> employeeAttendances = new ArrayList<>();
+        WeekMemory Weekmem = new WeekMemory();
         ArrayList<Integer> weeklyHoursList = new ArrayList<>();
         String fileName = "./Attendance.csv";
         BufferedReader reader2 = null;
@@ -60,6 +62,10 @@ public class AttendanceFileReader {
                     LocalTime timeOut = LocalTime.parse(AttData[5], timeFormatter);
                     atten.setTimeIn(timeIn);
                     atten.setTimeOut(timeOut);
+                    Duration duration = Duration.between(timeIn, timeOut);
+                    long thehoursWorked = duration.toHours();
+                    int monthlyHours = (int) thehoursWorked;
+                    atten.setMonthlyHours(monthlyHours);
 
                     employeeAttendances.add(atten);
                     long hoursWorked = atten.getHoursWorked();
@@ -81,6 +87,34 @@ public class AttendanceFileReader {
             attendance.setMonthlyHours(totalHoursWorked);
             attendance.setMonthlyHours(monthlyHours);
 
+            // Assign weekly hours to string variables
+            String weeklyhour1 = "";
+            String weeklyhour2 = "";
+            String weeklyhour3 = "";
+            String weeklyhour4 = "";
+            String weeklyhour5 = "";
+
+            for (int weekIndex = 0; weekIndex < weeklyHoursList.size(); weekIndex++) {
+                int weeklyHoursValue = weeklyHoursList.get(weekIndex);
+                switch (weekIndex) {
+                    case 0:
+                        Weekmem.setWeeklyhour1(Integer.toString(weeklyHoursValue));
+                        break;
+                    case 1:
+                        Weekmem.setWeeklyhour2(Integer.toString(weeklyHoursValue));
+                        break;
+                    case 2:
+                        Weekmem.setWeeklyhour3(Integer.toString(weeklyHoursValue));
+                        break;
+                    case 3:
+                        Weekmem.setWeeklyhour4(Integer.toString(weeklyHoursValue));
+                        break;
+                    case 4:
+                        Weekmem.setWeeklyhour5(Integer.toString(weeklyHoursValue));
+                        break;
+                }
+            }
+
             // Print weekly hours
             for (int weekIndex = 0; weekIndex < weeklyHoursList.size(); weekIndex++) {
                 System.out.println("Week " + (weekIndex + 1) + " Hours: " + weeklyHoursList.get(weekIndex));
@@ -91,6 +125,6 @@ public class AttendanceFileReader {
         } catch (DateTimeParseException ex) {
             ex.printStackTrace();
         }
-
+        return Weekmem;
     }
 }

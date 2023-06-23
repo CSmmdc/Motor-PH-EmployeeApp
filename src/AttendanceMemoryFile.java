@@ -20,6 +20,6 @@ public class AttendanceMemoryFile {
     }
 
     public double getStaticSalary(){
-        return (this.getHoursWorked() * this.getHourlyRate());
+        return (this.attendance.getMonthlyHours() * this.getHourlyRate());
     }
 }

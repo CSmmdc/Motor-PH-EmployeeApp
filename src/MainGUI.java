@@ -7,8 +7,11 @@ import java.awt.event.ActionListener;
 
 
 public class MainGUI extends JPanel {
+    private AttendanceFileReader attfile;
+    private WeekMemory weekmem;
     private Employee emp;
     static InputMemory inputMemory = new InputMemory();
+    private double netSalary;
     // GUI elements below
     private static JTextField EnterMonthField;
     private static JTextField EnterEMPNUMBField;
@@ -37,12 +40,12 @@ public class MainGUI extends JPanel {
     private JLabel PhilHealthTitle;
     private JLabel TINTitle;
     private static JTextField EmpLastNameBox;
-    private JTextField MonthlyGrossBox;
-    private JTextField Week1Box;
-    private JTextField Week2Box;
-    private JTextField Week3Box;
-    private JTextField Week4Box;
-    private JTextField MonthlyNetBox;
+    private static JTextField MonthlyGrossBox;
+    private static JTextField Week1Box;
+    private static JTextField Week2Box;
+    private static JTextField Week3Box;
+    private static JTextField Week4Box;
+    private static JTextField MonthlyNetBox;
     private JLabel Week1Title;
     private JLabel HoursWorkedTitle;
     private JLabel Week2Title;
@@ -51,7 +54,7 @@ public class MainGUI extends JPanel {
     private JLabel MonthlyGCTitle;
     private JLabel MonthlyNCTitle;
     private JLabel Week5Title;
-    private JTextField Week5Box;
+    private static JTextField Week5Box;
     private JButton LeaveAppButton;
 
 
@@ -218,6 +221,13 @@ public class MainGUI extends JPanel {
                 Attendance attendance = new Attendance();
                 AttendanceFileReader reader2 = new AttendanceFileReader();
                 reader2.AttenFileRead(inputmo, inputnum, attendance);
+                WeekMemory weekMemory = reader2.AttenFileRead(inputmo, inputnum, attendance);
+                Calculation calculation = new Calculation();
+                AttendanceMemoryFile attendancemem = new AttendanceMemoryFile(emp, attendance);
+                Employee employee = new Employee();
+                double netSalary = calculation.netsalary(attendancemem, employee);
+
+
 
                 //Enter here text display button for the left side
                 EmpLastNameBox.setText(emp.LastName);
@@ -233,10 +243,24 @@ public class MainGUI extends JPanel {
                 PhilHealthBox.setText(emp.PhilHealth);
                 PAGIBIGBox.setText(emp.Pagibig);
 
+                Week1Box.setText(weekMemory.getWeeklyhour1());
+                Week2Box.setText(weekMemory.getWeeklyhour2());
+                Week3Box.setText(weekMemory.getWeeklyhour3());
+                Week4Box.setText(weekMemory.getWeeklyhour4());
+                Week5Box.setText(weekMemory.getWeeklyhour5());
+
+                MonthlyGrossBox.setText(String.valueOf(attendancemem.getStaticSalary()));
+                MonthlyNetBox.setText(String.valueOf(calculation.getNetSalary()));
+
+
+
 
             }
         });
-        
-    }
 
+    }
+    public double getNetSalary() {
+        return netSalary;
+    }
 }
+
