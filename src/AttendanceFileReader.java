@@ -24,7 +24,6 @@ public class AttendanceFileReader {
         } catch (FileNotFoundException ex) {
             throw new RuntimeException(ex);
         }
-
         try {
             int inputmonth = Integer.parseInt(inputmo);
             String row2;
@@ -73,7 +72,6 @@ public class AttendanceFileReader {
                     totalHoursWorked += hoursWorked;
                 }
             }
-
             if (currentWeek != -1) {
                 weeklyHoursList.add(weekHours);
             }
@@ -81,9 +79,8 @@ public class AttendanceFileReader {
             // Calculate monthly hours
             int monthlyHours = 0;
             for (int hours : weeklyHoursList) {
-                monthlyHours += weekHours;
+                monthlyHours += hours;
             }
-
             attendance.setMonthlyHours(totalHoursWorked);
             attendance.setMonthlyHours(monthlyHours);
 
@@ -93,7 +90,6 @@ public class AttendanceFileReader {
             String weeklyhour3 = "";
             String weeklyhour4 = "";
             String weeklyhour5 = "";
-
             for (int weekIndex = 0; weekIndex < weeklyHoursList.size(); weekIndex++) {
                 int weeklyHoursValue = weeklyHoursList.get(weekIndex);
                 switch (weekIndex) {

@@ -2,16 +2,22 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 
 
 
+
 public class MainGUI extends JPanel {
+    private JPanel MainWindow;
     private AttendanceFileReader attfile;
     private WeekMemory weekmem;
     private Employee emp;
+    private LeaveFileReader leaveFileReader;
+    private LeaveAppWindow LeaveWindow;
     static InputMemory inputMemory = new InputMemory();
     private double netSalary;
+
     // GUI elements below
     private static JTextField EnterMonthField;
     private static JTextField EnterEMPNUMBField;
@@ -55,7 +61,7 @@ public class MainGUI extends JPanel {
     private JLabel MonthlyNCTitle;
     private JLabel Week5Title;
     private static JTextField Week5Box;
-    private JButton LeaveAppButton;
+    private static JButton LeaveAppButton;
 
 
     public MainGUI() {
@@ -222,10 +228,11 @@ public class MainGUI extends JPanel {
                 AttendanceFileReader reader2 = new AttendanceFileReader();
                 reader2.AttenFileRead(inputmo, inputnum, attendance);
                 WeekMemory weekMemory = reader2.AttenFileRead(inputmo, inputnum, attendance);
-                Calculation calculation = new Calculation();
                 AttendanceMemoryFile attendancemem = new AttendanceMemoryFile(emp, attendance);
                 Employee employee = new Employee();
-                double netSalary = calculation.netsalary(attendancemem, employee);
+                LeaveFileReader leaveFileReader = new LeaveFileReader();
+                Calculation calculation = new Calculation(attendancemem, leaveFileReader, employee);
+                double netSalary = calculation.getNetSalary(leaveFileReader);
 
 
 
@@ -250,11 +257,18 @@ public class MainGUI extends JPanel {
                 Week5Box.setText(weekMemory.getWeeklyhour5());
 
                 MonthlyGrossBox.setText(String.valueOf(attendancemem.getStaticSalary()));
-                MonthlyNetBox.setText(String.valueOf(calculation.getNetSalary()));
+                MonthlyNetBox.setText(String.valueOf(calculation.getNetSalary(leaveFileReader)));
 
 
 
 
+            }
+        });
+        LeaveAppButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LeaveAppWindow leavewin = new LeaveAppWindow();
+                leavewin.setVisible(true);
             }
         });
 

@@ -1,5 +1,7 @@
 import java.text.ParseException;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -69,11 +71,6 @@ public class Attendance {
     }
 
     public long getHoursWorked() {
-        if (TimeIn != null && TimeOut != null) {
-            Duration duration = Duration.between(TimeIn, TimeOut);
-            return duration.toHours();
-        } else {
-            return 0; // Or any default value you prefer when the times are not set
-        }
+        return monthlyHours;
     }
 }

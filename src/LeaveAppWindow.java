@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 public class LeaveAppWindow extends JPanel {
 

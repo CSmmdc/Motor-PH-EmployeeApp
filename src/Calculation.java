@@ -1,13 +1,31 @@
 public class Calculation {
     private AttendanceMemoryFile attendancemem;
+    private LeaveFileReader leaveFileReader;
     private Employee employee;
+    private String empNum;
+    private String month;
     private double newsalary;
 
+    public Calculation(AttendanceMemoryFile attendancemem, LeaveFileReader leaveFileReader, Employee employee) {
+        this.attendancemem = attendancemem;
+        this.leaveFileReader = leaveFileReader;
+        this.employee = employee;
+    }
 
-    public double netsalary(AttendanceMemoryFile attendancemem, Employee employee) {
+
+
+    public double netsalary(AttendanceMemoryFile attendancemem, LeaveFileReader leaveFileReader, Employee employee, String empNum, String month) {
+
         this.attendancemem = attendancemem;
         this.employee = employee;
+        this.leaveFileReader = leaveFileReader;
+        this.empNum = empNum;
+        this.month = month;
         newsalary = this.getStaticSalary();
+        int leaveHours = leaveFileReader.getLeaveHours(empNum, month);
+        double leaveDeduction = leaveHours * employee.getHourlyRate();
+        newsalary -= leaveDeduction;
+        System.out.println("Leave deduction: " + leaveDeduction);
         System.out.println("Static Salary: " + newsalary);
 
         if (newsalary >= 19250 && newsalary <= 19750) {
@@ -82,34 +100,33 @@ public class Calculation {
         }
         if (this.employee.getBasicSalary() >= 20833 && this.employee.getBasicSalary() <= 33333) {
             double WithTax = (newsalary - 20833) * 0.2;
-            newsalary = newsalary - WithTax;
-            System.out.println("Witholding Tax: " + WithTax);
+            newsalary -= WithTax; // Subtract the WithTax value from the newsalary
+            System.out.println("Withholding Tax: " + WithTax);
         }
         if (this.employee.getBasicSalary() >= 33334 && this.employee.getBasicSalary() <= 66666) {
             double WithTax = ((newsalary - 33333) * 0.25) + 2500;
-            newsalary = newsalary - WithTax;
-            System.out.println("Witholding Tax: " + WithTax);
+            newsalary -= WithTax; // Subtract the WithTax value from the newsalary
+            System.out.println("Withholding Tax: " + WithTax);
         }
         if (this.employee.getBasicSalary() >= 66667 && this.employee.getBasicSalary() <= 166666) {
-            double WithTax = ((newsalary - 666667) * 0.30) + 10833;
-            newsalary = newsalary - WithTax;
-            System.out.println("Witholding Tax: " + WithTax);
+            double WithTax = ((newsalary - 66667) * 0.30) + 10833;
+            newsalary -= WithTax; // Subtract the WithTax value from the newsalary
+            System.out.println("Withholding Tax: " + WithTax);
         }
         if (this.employee.getBasicSalary() >= 166667 && this.employee.getBasicSalary() <= 666666) {
             double WithTax = ((newsalary - 166667) * 0.32) + 40833.33;
-            newsalary = newsalary - WithTax;
-            System.out.println("Witholding Tax: " + WithTax);
+            newsalary -= WithTax; // Subtract the WithTax value from the newsalary
+            System.out.println("Withholding Tax: " + WithTax);
         }
         if (this.employee.getBasicSalary() >= 666667) {
             double WithTax = ((newsalary - 666667) * 0.35) + 200833.33;
-            newsalary = newsalary - WithTax;
-            System.out.println("Witholding Tax: " + WithTax);
+            newsalary -= WithTax; // Subtract the WithTax value from the newsalary
+            System.out.println("Withholding Tax: " + WithTax);
         }
         return newsalary;
     }
-    public double getNetSalary() {
-        newsalary = netsalary(attendancemem, employee);
-        return newsalary;
+    public double getNetSalary(LeaveFileReader leaveFileReader) {
+        return netsalary(attendancemem, leaveFileReader, employee, empNum, month);
     }
 
     private double getStaticSalary() {
