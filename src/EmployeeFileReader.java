@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class EmployeeFileReader {
+    private InputMemory input;
 
     public static void EmpFileRead(String inputnum, String inputmo) {
         Employee emp = new Employee();

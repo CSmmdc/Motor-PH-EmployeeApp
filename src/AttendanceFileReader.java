@@ -8,12 +8,21 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+<<<<<<< Updated upstream
 
 public class AttendanceFileReader(String inputnum, String inputmo) {
 
     public static void AttenFileRead(){
         ArrayList<Attendance> employeeAttendances = new ArrayList<Attendance>();
 
+=======
+public class AttendanceFileReader {
+    private InputMemory input;
+    public static void AttenFileRead(String inputmo, String inputnum, Attendance attendance) {
+        ArrayList<Attendance> employeeAttendances = new ArrayList<>();
+        ArrayList<Integer> weeklyHoursList = new ArrayList<>();
+        String fileName = "./Attendance.csv";
+>>>>>>> Stashed changes
         BufferedReader reader2 = null;
         try {
             reader2 = new BufferedReader(new FileReader("./Attendance.csv"));
@@ -137,9 +146,12 @@ public class AttendanceFileReader(String inputnum, String inputmo) {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+<<<<<<< Updated upstream
         catch (ParseException a) {
             // Handle the exception
             a.printStackTrace();
         }
+=======
+>>>>>>> Stashed changes
     }
 }
