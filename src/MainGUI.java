@@ -2,28 +2,30 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.awt.event.ActionListener;
+
 
 
 public class MainGUI extends JPanel {
     private Employee emp;
-    InputMemory inputMemory = new InputMemory();
+    static InputMemory inputMemory = new InputMemory();
     // GUI elements below
-    private JTextField EnterMonthField;
-    private JTextField EnterEMPNUMBField;
+    private static JTextField EnterMonthField;
+    private static JTextField EnterEMPNUMBField;
     private JLabel EnterMonthDisplay;
     private JLabel EnterEMPNumDisplay;
-    private JButton ConfirmButton;
-    private JTextField EmpFirstNameBox;
-    private JTextField BirthdayBox;
-    private JTextField PhoneNumBox;
-    private JTextField StatusBox;
-    private JTextField SSSBox;
-    private JTextField AddressBox;
-    private JTextField PositionBox;
-    private JTextField SupervisorBox;
-    private JTextField PhilHealthBox;
-    private JTextField PAGIBIGBox;
-    private JTextField TINBox;
+    private static JButton ConfirmButton;
+    private static JTextField EmpFirstNameBox;
+    private static JTextField BirthdayBox;
+    private static JTextField PhoneNumBox;
+    private static JTextField StatusBox;
+    private static JTextField SSSBox;
+    private static JTextField AddressBox;
+    private static JTextField PositionBox;
+    private static JTextField SupervisorBox;
+    private static JTextField PhilHealthBox;
+    private static JTextField PAGIBIGBox;
+    private static JTextField TINBox;
     private JLabel BirthdayTitle;
     private JLabel PhoneNumTitle;
     private JLabel StatusTitle;
@@ -34,7 +36,7 @@ public class MainGUI extends JPanel {
     private JLabel SupervisorTitle;
     private JLabel PhilHealthTitle;
     private JLabel TINTitle;
-    private JTextField EmpLastNameBox;
+    private static JTextField EmpLastNameBox;
     private JTextField MonthlyGrossBox;
     private JTextField Week1Box;
     private JTextField Week2Box;
@@ -48,6 +50,10 @@ public class MainGUI extends JPanel {
     private JLabel Week4Title;
     private JLabel MonthlyGCTitle;
     private JLabel MonthlyNCTitle;
+    private JLabel Week5Title;
+    private JTextField Week5Box;
+    private JButton LeaveAppButton;
+
 
     public MainGUI() {
         //construct components
@@ -91,6 +97,9 @@ public class MainGUI extends JPanel {
         Week4Title = new JLabel ("Week 4");
         MonthlyGCTitle = new JLabel ("Monthly Gross Computation");
         MonthlyNCTitle = new JLabel ("Monthly Netpay Computation");
+        LeaveAppButton = new JButton ("Leave App");
+        Week5Title = new JLabel ("Week 5");
+        Week5Box = new JTextField (5);
 
         //adjust size and set layout
         setPreferredSize (new Dimension (944, 574));
@@ -137,6 +146,9 @@ public class MainGUI extends JPanel {
         add (Week4Title);
         add (MonthlyGCTitle);
         add (MonthlyNCTitle);
+        add (LeaveAppButton);
+        add (Week5Title);
+        add (Week5Box);
 
         //set component bounds (only needed by Absolute Positioning)
         EnterMonthField.setBounds (50, 420, 145, 30);
@@ -179,45 +191,52 @@ public class MainGUI extends JPanel {
         Week4Title.setBounds (565, 340, 100, 25);
         MonthlyGCTitle.setBounds (505, 445, 160, 25);
         MonthlyNCTitle.setBounds (710, 445, 165, 25);
+        LeaveAppButton.setBounds (245, 450, 145, 45);
+        Week5Title.setBounds (565, 400, 100, 25);
+        Week5Box.setBounds (730, 400, 100, 25);
+
     }
 
 
     public static void main (String[] args) {
-        JFrame frame = new JFrame ("MotorPH");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new MainGUI());
+        JFrame frame = new JFrame("MotorPH");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(new MainGUI());
         frame.pack();
-        frame.setVisible (true);
-    }
+        frame.setVisible(true);
 
-    public void actionPerformed(ActionEvent e) {
+        ConfirmButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
-        String inputnum = EnterEMPNUMBField.getText();
-        String inputmo = EnterMonthField.getText();
-        inputMemory.setInputNum(inputnum);
-        inputMemory.setInputMo(inputmo);
-        Employee emp = EmployeeFileReader.EmpFileRead(inputnum, inputmo);
-        EmployeeFileReader reader = new EmployeeFileReader();
-        reader.EmpFileRead(inputnum, inputmo);
-        Attendance attendance = new Attendance();
-        AttendanceFileReader reader2 = new AttendanceFileReader();
-        reader2.AttenFileRead(inputmo, inputnum, attendance);
+                String inputnum = EnterEMPNUMBField.getText();
+                String inputmo = EnterMonthField.getText();
+                inputMemory.setInputNum(inputnum);
+                inputMemory.setInputMo(inputmo);
+                Employee emp = EmployeeFileReader.EmpFileRead(inputnum, inputmo);
+                EmployeeFileReader reader = new EmployeeFileReader();
+                reader.EmpFileRead(inputnum, inputmo);
+                Attendance attendance = new Attendance();
+                AttendanceFileReader reader2 = new AttendanceFileReader();
+                reader2.AttenFileRead(inputmo, inputnum, attendance);
 
-        //Enter here text display button for the left side
-        EmpLastNameBox.setText(emp.LastName);
-        EmpFirstNameBox.setText(emp.FirstName);
-        BirthdayBox.setText(emp.Birth);
-        PhoneNumBox.setText(emp.PhoneNum);
-        AddressBox.setText(emp.Address);
-        PositionBox.setText(emp.Position);
-        StatusBox.setText(emp.Status);
-        SupervisorBox.setText(emp.Supervisor);
-        TINBox.setText(emp.TIN);
-        SSSBox.setText(emp.SSS);
-        PhilHealthBox.setText(emp.PhilHealth);
-        PAGIBIGBox.setText(emp.Pagibig);
+                //Enter here text display button for the left side
+                EmpLastNameBox.setText(emp.LastName);
+                EmpFirstNameBox.setText(emp.FirstName);
+                BirthdayBox.setText(emp.Birth);
+                PhoneNumBox.setText(emp.PhoneNum);
+                AddressBox.setText(emp.Address);
+                PositionBox.setText(emp.Position);
+                StatusBox.setText(emp.Status);
+                SupervisorBox.setText(emp.Supervisor);
+                TINBox.setText(emp.TIN);
+                SSSBox.setText(emp.SSS);
+                PhilHealthBox.setText(emp.PhilHealth);
+                PAGIBIGBox.setText(emp.Pagibig);
+
+
+            }
+        });
         
-
-
     }
+
 }

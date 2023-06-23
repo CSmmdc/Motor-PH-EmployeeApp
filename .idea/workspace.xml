@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0bce09fd-1f13-4e1e-896a-c24fa129c077" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attendance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AttendanceFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttendanceFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attendance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Motor-PH-EmployeeApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Motor-PH-EmployeeApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmployeeMemoryFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeMemoryFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +36,21 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/sydne/Documents/GitHub/CP2Europa/MotorPHAppIntellij",
+    "last_opened_file_path": "C:/Users/sydne/Documents/GitHub/Motor-PH-EmployeeApp/dep/opencsv-5.7.1.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.packagesearch.PackageSearchGeneralConfigurable"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainGUI">
+    <configuration name="LeaveAppWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LeaveAppWindow" />
+      <module name="Motor-PH-EmployeeApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainGUI" />
       <module name="Motor-PH-EmployeeApp" />
@@ -50,6 +61,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainGUI" />
+        <item itemvalue="Application.LeaveAppWindow" />
       </list>
     </recent_temporary>
   </component>
