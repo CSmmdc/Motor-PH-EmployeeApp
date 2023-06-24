@@ -269,6 +269,13 @@ public class MainGUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 LeaveAppWindow leavewin = new LeaveAppWindow();
                 leavewin.setVisible(true);
+
+                // Add the following lines to display the LeaveAppWindow
+                JFrame leaveAppFrame = new JFrame("Leave Application");
+                leaveAppFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                leaveAppFrame.getContentPane().add(leavewin);
+                leaveAppFrame.pack();
+                leaveAppFrame.setVisible(true);
             }
         });
 
