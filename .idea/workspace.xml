@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bce09fd-1f13-4e1e-896a-c24fa129c077" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AttendanceMemoryFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttendanceMemoryFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +40,14 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.packagesearch.PackageSearchGeneralConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MainGUI">
+  <component name="RunManager" selected="Application.MainGUI (3)">
+    <configuration name="LeaveAppWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LeaveAppWindow" />
+      <module name="Motor-PH-EmployeeApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainGUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainGUI" />
       <module name="Motor-PH-EmployeeApp" />
@@ -63,13 +69,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainGUI (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainGUI" />
-      <module name="Motor-PH-EmployeeApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainGUI" />
       <module name="Motor-PH-EmployeeApp" />
@@ -79,11 +78,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainGUI" />
-        <item itemvalue="Application.MainGUI (1)" />
-        <item itemvalue="Application.MainGUI (4)" />
         <item itemvalue="Application.MainGUI (3)" />
         <item itemvalue="Application.MainGUI (2)" />
+        <item itemvalue="Application.LeaveAppWindow" />
+        <item itemvalue="Application.MainGUI" />
+        <item itemvalue="Application.MainGUI (1)" />
       </list>
     </recent_temporary>
   </component>

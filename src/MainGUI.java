@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 
 
-
+//This is our code
 
 public class MainGUI extends JPanel {
     private JPanel MainWindow;
