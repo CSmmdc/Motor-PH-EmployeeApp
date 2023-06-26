@@ -270,6 +270,7 @@ public class MainGUI extends JPanel {
                 LeaveAppWindow leavewin = new LeaveAppWindow();
                 leavewin.setVisible(true);
 
+
                 // Add the following lines to display the LeaveAppWindow
                 JFrame leaveAppFrame = new JFrame("Leave Application");
                 leaveAppFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
