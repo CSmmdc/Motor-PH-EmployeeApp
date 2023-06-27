@@ -3,7 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-public class EmployeeLogin extends JPanel {
+public class EmployeeLogin extends JFrame {
     private JButton CreateAccountButton;
     private JButton LoginButton;
     private JLabel EmployeeLoginTittle;
@@ -43,15 +43,80 @@ public class EmployeeLogin extends JPanel {
         PasswordTitle.setBounds (15, 135, 65, 25);
         PasswordBox.setBounds (80, 130, 160, 25);
         UsernameBox.setBounds (80, 70, 160, 25);
+
+        CreateAccountButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Create an instance of CreateAccountWin
+                CreateAccountWin createAccountWin = new CreateAccountWin();
+
+                // Set up a JFrame to contain the CreateAccountWin
+                JFrame frame = new JFrame("Create Account");
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.getContentPane().add(createAccountWin);
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
+        LoginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String username = UsernameBox.getText();
+                String password = PasswordBox.getText();
+
+                if (UserDetails.checkUser(username, password)) {
+                    JOptionPane.showMessageDialog(EmployeeLogin.this, "Login successful");
+                    dispose();
+
+                    // Open MainGUI
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            JFrame frame = new JFrame("MotorPH");
+                            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            frame.getContentPane().add(new MainGUI());
+                            frame.pack();
+                            frame.setVisible(true);
+                        }
+                    });
+                } else {
+                    JOptionPane.showMessageDialog(EmployeeLogin.this, "Invalid username or password");
+                }
+            }
+        });
     }
 
 
-    public static void main (String[] args) {
-        JFrame frame = new JFrame ("MyPanel");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new EmployeeLogin());
-        frame.pack();
-        frame.setVisible (true);
+    private boolean isLoginSuccessful() {
+        String username = UsernameBox.getText();
+        String password = PasswordBox.getText();
+
+        // Check if the username and password are correct
+        if (UserDetails.checkUser(username, password)) {
+            return true; // Login successful
+        } else {
+            return false; // Login failed
+        }
+    }
+
+
+    public static void main(String[] args) {
+        EmployeeLogin loginWindow = new EmployeeLogin();
+        loginWindow.setVisible(true);
+
+        loginWindow.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (loginWindow.isLoginSuccessful()) {
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            JFrame frame = new JFrame("MotorPH");
+                            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            frame.getContentPane().add(new MainGUI());
+                            frame.pack();
+                            frame.setVisible(true);
+                        }
+                    });
+                }
+            }
+        });
     }
 }
 

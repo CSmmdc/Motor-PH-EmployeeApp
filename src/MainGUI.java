@@ -204,16 +204,6 @@ public class MainGUI extends JPanel {
         Week5Title.setBounds (565, 400, 100, 25);
         Week5Box.setBounds (730, 400, 100, 25);
 
-    }
-
-
-    public static void main (String[] args) {
-        JFrame frame = new JFrame("MotorPH");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new MainGUI());
-        frame.pack();
-        frame.setVisible(true);
-
         ConfirmButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -265,13 +255,11 @@ public class MainGUI extends JPanel {
             }
         });
         LeaveAppButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 LeaveAppWindow leavewin = new LeaveAppWindow();
                 leavewin.setVisible(true);
 
 
-                // Add the following lines to display the LeaveAppWindow
                 JFrame leaveAppFrame = new JFrame("Leave Application");
                 leaveAppFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 leaveAppFrame.getContentPane().add(leavewin);
@@ -280,9 +268,20 @@ public class MainGUI extends JPanel {
             }
         });
 
+
     }
-    public double getNetSalary() {
-        return netSalary;
+
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame("MotorPH");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.getContentPane().add(new MainGUI());
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
     }
 }
 

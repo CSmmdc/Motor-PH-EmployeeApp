@@ -30,7 +30,7 @@ public class LeaveAppWindow extends JPanel {
         DateEntryDisplay = new JLabel("Enter Date Here:");
         EmpNumLeaveDisplay = new JLabel("Employee Number:");
         ReasonDisplay = new JLabel("Reason:");
-        FormatDisplay = new JLabel("Format: mm-dd-yyyy");
+        FormatDisplay = new JLabel("Format: mm/dd/yyyy");
 
         //adjust size and set layout
         setPreferredSize(new Dimension(643, 223));
@@ -57,6 +57,15 @@ public class LeaveAppWindow extends JPanel {
         EmpNumLeaveDisplay.setBounds(230, 135, 110, 25);
         ReasonDisplay.setBounds(390, 135, 100, 25);
         FormatDisplay.setBounds(85, 110, 120, 25);
+
+        LeaveEnterButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String DateInput = DateEntryBox.getText();
+                String EmpNumInput = EmpNumEntryBox.getText();
+                String ReasonInput = ReasonEntryBox.getText();
+                LeaveApp.LeaveApp(DateInput, EmpNumInput, ReasonInput, EmpMem);
+            }
+        });
     }
 
 
@@ -67,13 +76,5 @@ public class LeaveAppWindow extends JPanel {
         frame.pack();
         frame.setVisible(true);
 
-        LeaveEnterButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String DateInput = DateEntryBox.getText();
-                String EmpNumInput = EmpNumEntryBox.getText();
-                String ReasonInput = ReasonEntryBox.getText();
-                LeaveApp.LeaveApp(DateInput, EmpNumInput, ReasonInput, EmpMem);
-            }
-        });
     }
 }
