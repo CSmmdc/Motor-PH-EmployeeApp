@@ -4,6 +4,12 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+
 public class LeaveAppWindow extends JPanel {
 
 
@@ -64,6 +70,21 @@ public class LeaveAppWindow extends JPanel {
                 String EmpNumInput = EmpNumEntryBox.getText();
                 String ReasonInput = ReasonEntryBox.getText();
                 LeaveApp.LeaveApp(DateInput, EmpNumInput, ReasonInput, EmpMem);
+                HashMap<String, HashMap<String, Integer>> leaveBalance = LeaveBalance.countLeaves();
+
+
+                for (String empNum : leaveBalance.keySet()) {
+                    HashMap<String, Integer> leaveBalanceMap = leaveBalance.get(empNum);
+
+                    for (String leaveType : leaveBalanceMap.keySet()) {
+                        int balance = leaveBalanceMap.get(leaveType);
+
+                        if (balance < 0) {
+                            String message = "Employee " + empNum + " has exceeded their " + leaveType.toLowerCase() + " leave balance.";
+                            JOptionPane.showMessageDialog(null, message);
+                        }
+                    }
+                }
             }
         });
     }
